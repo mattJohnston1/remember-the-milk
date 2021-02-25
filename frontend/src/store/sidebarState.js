@@ -1,7 +1,4 @@
-import { csrfFetch } from './csrf';
-
 const SET_STATE = "sidebar/setState";
-
 
 export const setState = (open) => {
   return {

@@ -1,0 +1,9 @@
+.sidebar {
+  background-color: red;
+  width: 250px;
+  height: 100vh;
+}
+
+.page {
+  display: flex;
+}

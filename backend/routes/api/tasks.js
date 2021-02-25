@@ -9,8 +9,6 @@ const router = express.Router();
 router.get('/:userId/', asyncHandler(async function (req, res) {
   const userId = req.params.userId;
 
-  console.log("aslkdjfalksjdflkasdfj", userId)
-
   const tasks = await Task.findAll({
     where: {
       userId: userId,
@@ -21,16 +19,18 @@ router.get('/:userId/', asyncHandler(async function (req, res) {
 }));
 
 //get all tasks for a specific table
-router.get('/:userId/:listId', asyncHandler(async function (req, res) {
+router.get('/list/:userId/:listId', asyncHandler(async function (req, res) {
   const userId = req.params.userId;
   const listId = req.params.listId;
+  // const userId = 1;
+  // const listId = 2;
 
   const tasks = await Task.findAll({
     where: {
-      userId,
-      listId,
+      userId: userId,
+      listId: listId,
     },
-    order: createdAt,
+    // order: createdAt,
   });
 
   return res.json(tasks);

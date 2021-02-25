@@ -2,12 +2,16 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from './session';
 import sidebarStateReducer from './sidebarState';
-// import sidebar from './sidebar';
+import sidebarReducer from './sidebar';
+import listStateReducer from './listState';
+import tasksReducer from './tasks';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  sidebar: sidebarReducer,
   sidebarState: sidebarStateReducer,
-  // sidebar: sidebarReducer,
+  listState: listStateReducer,
+  tasks: tasksReducer,
 });
 
 let enhancer;

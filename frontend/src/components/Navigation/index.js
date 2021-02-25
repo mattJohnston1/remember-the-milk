@@ -28,7 +28,7 @@ function Navigation({ isLoaded }) {
   return (
     <ul>
       <li>
-        <button className="sidebar-button" onClick={dispatch(setState(!sidebarState))}>
+        <button className="sidebar-button" onClick={() => { dispatch(setState(!sidebarState)) }}>
           ☰
         </button>
         <NavLink exact to="/">Home</NavLink>
