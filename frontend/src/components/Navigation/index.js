@@ -24,7 +24,6 @@ function Navigation({ isLoaded }) {
   }
   const dispatch = useDispatch();
   const sidebarState = useSelector(state => state.sidebarState.open);
-  console.log(sidebarState)
   return (
     <ul>
       <li>

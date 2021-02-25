@@ -9,6 +9,12 @@ const setTasks = (tasks) => {
   }
 }
 
+export const moveToChecked = (taskId) => async dispatch => {
+  await csrfFetch(`api/tasks/${taskId}`, {
+    method: 'DELETE',
+  })
+}
+
 export const getAllTasks = (listId, userId) => async dispatch => {
   let response;
   if (listId === null) {
@@ -23,8 +29,14 @@ export const getAllTasks = (listId, userId) => async dispatch => {
   return tasks;
 }
 
-export const addNewTask = (task) => async dispatch => {
-
+export const addNewTask = (task, listId, userId) => async dispatch => {
+  const response = await csrfFetch(`/api/tasks/${userId}/${listId}`, {
+    method: 'POST',
+    body: JSON.stringify({ text: task })
+  })
+  dispatch(getAllTasks(listId, userId));
+  const newTask = await response.json();
+  return newTask;
 }
 
 const initialState = { tasks: [] };

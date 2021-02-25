@@ -1,6 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getAllLists, setLists } from '../../store/sidebar';
+import { getAllLists } from '../../store/sidebar';
 import { setListState } from '../../store/listState'
 
 export default function Sidebar() {
@@ -10,14 +10,13 @@ export default function Sidebar() {
 
   useEffect(async () => {
     const lists = await dispatch(getAllLists(userId));
-    console.log(lists)
   }, [dispatch])
 
   return (
     <div className="sidebar">
       <h2>Sidebar</h2>
       <br></br>
-      <button onClick={() => { dispatch(setListState(null)) }}>All Tasks</button>
+      <a onClick={() => { dispatch(setListState(null)) }}>All Tasks</a>
 
       <br></br>
       <div className="lists-header">

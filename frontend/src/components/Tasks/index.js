@@ -1,31 +1,56 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
-import { getAllTasks, addNewTask } from '../../store/tasks';
+import { getAllTasks, addNewTask, moveToChecked } from '../../store/tasks';
 
 export default function Tasks() {
   const userId = useSelector(state => state.session.user.id);
   const listId = useSelector(state => state.listState.listId);
   const tasks = useSelector(state => state.tasks.tasks);
   const [newTask, setNewTask] = useState('');
+  const [checked, setChecked] = useState([]);
 
   const dispatch = useDispatch();
   useEffect(async () => {
-    console.log("asdfjalkjsdh")
     const tasks = await dispatch(getAllTasks(listId, userId));
-    console.log(tasks);
   }, [dispatch, listId])
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    dispatch(addNewTask(newTask));
+    await dispatch(addNewTask(newTask, listId, userId));
 
     setNewTask('');
+  }
+
+  const handleCheck = (e) => {
+    const val = Number(e.target.value);
+    if (e.target.checked) {
+      checked.push(val);
+    } else {
+      const idx = checked.indexOf(val);
+      setChecked(prevState => removeItem(prevState, val))
+    }
+  }
+  const handleChecks = async (e) => {
+    checked.forEach(async (taskId) => {
+      await dispatch(moveToChecked(taskId))
+    })
+    await dispatch(getAllTasks(listId, userId));
+    setChecked([]);
+  }
+
+  function removeItem(arr, value) {
+    let index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+    return arr;
   }
 
   return (
     <div className="tasks">
       tasks{listId}
+      <button className="check" onClick={handleChecks}>Mark As Complete</button>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -33,7 +58,10 @@ export default function Tasks() {
           onChange={(e) => { setNewTask(e.target.value) }}></input>
       </form>
       {tasks.map((task, idx) => (
-        <h2>{task.text}</h2>
+        <div className="task">
+          <input type="checkbox" value={task.id} onChange={handleCheck} />
+          <h2>{task.text}</h2>
+        </div>
       ))}
     </div>
   )

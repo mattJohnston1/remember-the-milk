@@ -22,18 +22,31 @@ router.get('/:userId/', asyncHandler(async function (req, res) {
 router.get('/list/:userId/:listId', asyncHandler(async function (req, res) {
   const userId = req.params.userId;
   const listId = req.params.listId;
-  // const userId = 1;
-  // const listId = 2;
 
   const tasks = await Task.findAll({
     where: {
       userId: userId,
       listId: listId,
-    },
-    // order: createdAt,
+    }
   });
 
   return res.json(tasks);
 }));
+
+router.post('/:userId/:listId', asyncHandler(async function (req, res) {
+  const userId = req.params.userId;
+  const listId = req.params.listId;
+  const { text } = req.body;
+
+  const newTask = await Task.create({ userId, listId, text });
+  return res.json(newTask);
+}))
+
+router.delete('/:taskId', asyncHandler(async function (req, res) {
+  const taskId = req.params.taskId;
+  const task = await Task.findByPk(taskId);
+  await task.destroy();
+}))
+//save task to a different var and create a new Task with a list id of a completed table and then delete the old one
 
 module.exports = router;
