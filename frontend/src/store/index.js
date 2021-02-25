@@ -1,9 +1,13 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from './session';
+import sidebarStateReducer from './sidebarState';
+// import sidebar from './sidebar';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
+  sidebarState: sidebarStateReducer,
+  // sidebar: sidebarReducer,
 });
 
 let enhancer;

@@ -1,7 +1,9 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
+import { useDispatch, useSelector } from "react-redux";
+import { setState } from '../../store/sidebarState'
+
 import './Navigation.css';
 
 function Navigation({ isLoaded }) {
@@ -20,10 +22,15 @@ function Navigation({ isLoaded }) {
       </>
     );
   }
-
+  const dispatch = useDispatch();
+  const sidebarState = useSelector(state => state.sidebarState.open);
+  console.log(sidebarState)
   return (
     <ul>
       <li>
+        <button className="sidebar-button" onClick={dispatch(setState(!sidebarState))}>
+          ☰
+        </button>
         <NavLink exact to="/">Home</NavLink>
         {isLoaded && sessionLinks}
       </li>
