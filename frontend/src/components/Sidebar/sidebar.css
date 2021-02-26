@@ -1,0 +1,13 @@
+.list-name {
+  /* color: #004D9F; */
+  color: black;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 10px;
+  padding: 5px;
+  width: 140px;
+}
+
+.list-name:hover {
+  background-color: #BFD7EF;
+}

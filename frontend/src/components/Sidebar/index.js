@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { getAllLists } from '../../store/sidebar';
-import { setListState } from '../../store/listState'
+import { setListState } from '../../store/listState';
+
+import './sidebar.css'
 
 export default function Sidebar() {
   const dispatch = useDispatch();
@@ -9,12 +11,12 @@ export default function Sidebar() {
   const userId = useSelector(state => state.session.user.id);
 
   useEffect(async () => {
-    const lists = await dispatch(getAllLists(userId));
+    await dispatch(getAllLists(userId));
   }, [dispatch])
 
   return (
     <div className="sidebar">
-      <h2>Sidebar</h2>
+      <div className="sidebar-logo"></div>
       <br></br>
       <a onClick={() => { dispatch(setListState(null)) }}>All Tasks</a>
 
@@ -25,7 +27,7 @@ export default function Sidebar() {
 
       <ul>
         {lists.map((list) => (
-          <li><a onClick={() => { dispatch(setListState(list.id)) }}>{list.name}</a></li>
+          <li><a className="list-name" onClick={() => { dispatch(setListState(list.id)) }}>{list.name}</a></li>
         ))}
       </ul>
     </div>

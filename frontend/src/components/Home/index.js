@@ -1,5 +1,6 @@
-import Tasks from "../Tasks"
 import Sidebar from "../Sidebar"
+import Tasks from "../Tasks"
+import Task from "../Task"
 
 import "./home.css"
 import { useSelector } from 'react-redux'
@@ -14,6 +15,7 @@ export default function Home() {
         <Sidebar />
       )}
       <Tasks />
+      <Task />
     </div>
   )
 }

@@ -5,6 +5,7 @@ import sidebarStateReducer from './sidebarState';
 import sidebarReducer from './sidebar';
 import listStateReducer from './listState';
 import tasksReducer from './tasks';
+import currentTaskStateReducer from './currentTaskState';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -12,6 +13,7 @@ const rootReducer = combineReducers({
   sidebarState: sidebarStateReducer,
   listState: listStateReducer,
   tasks: tasksReducer,
+  currentTask: currentTaskStateReducer,
 });
 
 let enhancer;

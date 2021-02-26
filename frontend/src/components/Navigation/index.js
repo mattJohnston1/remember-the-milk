@@ -25,7 +25,7 @@ function Navigation({ isLoaded }) {
   const dispatch = useDispatch();
   const sidebarState = useSelector(state => state.sidebarState.open);
   return (
-    <ul>
+    <ul className="nav-list">
       <li>
         <button className="sidebar-button" onClick={() => { dispatch(setState(!sidebarState)) }}>
           ☰

@@ -1,9 +1,21 @@
 .sidebar {
-  background-color: red;
-  width: 250px;
+  background-color: #D7E7F5;
+  width: 170px;
   height: 100vh;
+}
+
+.nav-list {
+  background-color: #0060BF;
 }
 
 .page {
   display: flex;
+}
+
+.task {
+  background-color: blue;
+}
+
+a {
+  cursor: pointer;
 }
