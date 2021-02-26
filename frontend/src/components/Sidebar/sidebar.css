@@ -37,7 +37,13 @@
   border-bottom: 1px solid #BFD9F1;
   padding-bottom: 8px;
   width: 140px;
+  height: 15px;
   margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.lists-header-container:hover {
+  background-color: #BFD7EF;
 }
 
 *{
@@ -46,4 +52,30 @@
 
 .br-test {
   color: black;
+}
+
+.carret, .carret-right{
+  background-color: transparent;
+  border: 0px;
+}
+
+.carret-right {
+  padding-right:8px;
+}
+
+.allTasks-header:hover {
+  background-color: #BFD7EF;
+}
+
+.addList {
+  font-size: 12px;
+  /* border: 1px solid black; */
+  max-height: 5px;
+  padding: 0px 5px 3px 5px;
+  /* font-size: 5px; */
+  margin-left: 60px;
+}
+
+.addList:hover {
+  background-color: rgb(165, 185, 206);
 }

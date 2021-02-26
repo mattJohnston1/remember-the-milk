@@ -7,6 +7,7 @@ import listStateReducer from './listState';
 import tasksReducer from './tasks';
 import currentTaskStateReducer from './currentTaskState';
 import showListStateReducer from './showListsState';
+import modalReducer from './modalState';
 
 const rootReducer = combineReducers({
   session: sessionReducer,
@@ -16,6 +17,7 @@ const rootReducer = combineReducers({
   tasks: tasksReducer,
   currentTask: currentTaskStateReducer,
   showList: showListStateReducer,
+  showModal: modalReducer,
 });
 
 let enhancer;
