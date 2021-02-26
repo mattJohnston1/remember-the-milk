@@ -46,6 +46,13 @@ router.delete('/:taskId', asyncHandler(async function (req, res) {
   const taskId = req.params.taskId;
   const task = await Task.findByPk(taskId);
   await task.destroy();
+  // res.status(204).end();
+  res.status(204)
+    .json({
+      status: 'success',
+      data: [],
+      message: `Successfully deleted`
+    })
 }));
 //save task to a different var and create a new Task with a list id of a completed table and then delete the old one
 

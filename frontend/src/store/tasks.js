@@ -14,7 +14,8 @@ export const moveToChecked = (taskId, listId, userId) => async dispatch => {
   await csrfFetch(`api/tasks/${taskId}`, {
     method: 'DELETE',
   })
-  dispatch(getAllTasks(listId, userId));
+  console.log("kafjhlkasjhdflkajshdaaaaa")
+  await dispatch(getAllTasks(listId, userId));
 }
 
 export const getAllTasks = (listId, userId) => async dispatch => {
@@ -44,7 +45,7 @@ export const addNewTask = (task, listId, userId) => async dispatch => {
 const initialState = { tasks: [] };
 
 const tasksReducer = (state = initialState, action) => {
-  let newState = { tasks: [] };
+  let newState = { state, tasks: [] };
   switch (action.type) {
     case SET_TASKS:
       newState.tasks = action.tasks;

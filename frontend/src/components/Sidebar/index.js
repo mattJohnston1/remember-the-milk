@@ -4,11 +4,13 @@ import { getAllLists } from '../../store/sidebar';
 import { setListState } from '../../store/listState';
 
 import './sidebar.css'
+import { show } from '../../store/showListsState';
 
 export default function Sidebar() {
   const dispatch = useDispatch();
   const lists = useSelector(state => state.sidebar.lists);
   const userId = useSelector(state => state.session.user.id);
+  const open = useSelector(state => state.showList.open);
 
   useEffect(async () => {
     await dispatch(getAllLists(userId));
@@ -19,7 +21,9 @@ export default function Sidebar() {
 
   //   return () => document.removeEventListener("click", () => console.log("NOOOOOOO"));
   // }, [])
-
+  const openList = () => {
+    dispatch(show(!open))
+  }
   return (
     <div className="sidebar">
       <div className="sidebar-logo">
@@ -32,17 +36,19 @@ export default function Sidebar() {
 
       <br className="br-test"></br>
       <div className="lists-header-container">
-        <div className="lists-header">
+        <a onClick={openList} className="lists-header">
           Lists
-      </div>
-
+        </a>
       </div>
 
       <ul>
         {lists.map((list) => (
-          <li><a className="list-name" onClick={() => { dispatch(setListState(list.id)) }}>{list.name}</a></li>
+          <li><a
+            className="list-name"
+            hidden={open ? false : true}
+            onClick={() => { dispatch(setListState(list.id)) }}>{list.name}</a></li>
         ))}
       </ul>
-    </div>
+    </div >
   )
 }

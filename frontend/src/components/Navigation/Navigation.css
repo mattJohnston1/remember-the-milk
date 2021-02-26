@@ -16,7 +16,7 @@ ul > li {
 }
 
 .sidebar-button:hover {
-  color: white;
   cursor: pointer;
-  background-color: #B3D0EC;
+  background-color: #0052A3;
+  color: white;
 }

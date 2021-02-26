@@ -6,6 +6,10 @@
   /* border-top: 1px solid black; */
 }
 
+.tasks-task:hover {
+  background-color: #FFFFDF;
+}
+
 .check {
   background-color: white;
   cursor: pointer;
@@ -22,7 +26,18 @@
 .newTask-box {
   width: 98vh;
   margin: 7px 0px 7px 0px;
+  border-top:0px;
+  border-right:0px;
+  border-left:0px;
 }
+/* .newTask-box:blur {
+  width: 98vh;
+  margin: 7px 0px 7px 0px;
+  border-top:0px;
+  border-right:0px;
+  border-left:0px;
+} */
+
 
 /* .myinput[type="checkbox"]:before {
   position: relative;

@@ -35,10 +35,14 @@ export default function Tasks() {
     }
     console.log(val)
   }
-  const handleChecks = async (e) => {
-    checked.forEach(async (taskId) => {
+
+  const handleChecks = async () => {
+    console.log(checked, "hello")
+    await Promise.all(checked.map(async (taskId) => {
+      console.log("inside promise.all")
       await dispatch(moveToChecked(taskId, listId, userId))
-    })
+      console.log("alskdlaksjd")
+    }))
     setChecked([]);
   }
 
@@ -60,12 +64,17 @@ export default function Tasks() {
           value={newTask}
           onChange={(e) => { setNewTask(e.target.value) }} placeholder="Add a task..."></input>
       </form>
-      {tasks.map((task, idx) => (
+      {tasks.map((task) => (
         <div className="tasks-task">
-          <input type="checkbox" className="myinput" value={task.id} onChange={handleCheck} />
+          <input type="checkbox"
+            className="myinput"
+            value={task.id}
+            onChange={handleCheck}
+            key={task.id}
+          // checked={checked.includes()}
+          />
           {/* <span class="checkmark"></span> */}
           <a onClick={() => {
-            console.log("TASK ID: ", task.id)
             dispatch(getOneTask(task.id))
           }}>{task.text}</a>
         </div>

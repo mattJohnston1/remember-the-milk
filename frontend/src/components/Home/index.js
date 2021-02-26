@@ -7,15 +7,22 @@ import { useSelector } from 'react-redux'
 
 export default function Home() {
 
-  const open = useSelector(state => state.sidebarState.open);
+  const sidebarOpen = useSelector(state => state.sidebarState.open);
+  const taskOpen = useSelector(state => state.currentTask.open);
+
+  function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+  }
 
   return (
     <div className="page">
-      {open && (
+      {sidebarOpen && (
         <Sidebar />
       )}
       <Tasks />
-      <Task />
+      {taskOpen && (
+        <Task />
+      )}
     </div>
   )
 }
