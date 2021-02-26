@@ -11,9 +11,16 @@ export default function Task() {
   console.log("ON THE TASK PAGE", task);
   return (
     <div className="task">
-      asdfkjhasldkjhf
+      <div className="top">
+        <div></div>
+        <a className="close">close x</a>
+      </div>
       <div className="text">{task.text}</div>
-      <input type="text" />
+      <div className="list">
+        <div className="task-list">List</div>
+        <div className="listName">Homework</div>
+      </div>
+      {/* <input type="text" /> */}
     </div>
   )
 }

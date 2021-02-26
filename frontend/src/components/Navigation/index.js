@@ -30,7 +30,7 @@ function Navigation({ isLoaded }) {
         <button className="sidebar-button" onClick={() => { dispatch(setState(!sidebarState)) }}>
           ☰
         </button>
-        <NavLink exact to="/">Home</NavLink>
+        {/* <NavLink exact to="/">Home</NavLink> */}
         {isLoaded && sessionLinks}
       </li>
     </ul>

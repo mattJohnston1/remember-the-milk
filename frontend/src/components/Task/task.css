@@ -1,4 +1,21 @@
 .text {
   font-size: 20px;
-  color: blue;
+  margin-bottom: 30px;
+}
+
+.list {
+  display: flex;
+}
+
+.task-list {
+  margin-right: 30px;
+  color: rgb(98, 98, 98);
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+}
+.close:hover {
+  color: darkgray;
 }

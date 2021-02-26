@@ -10,10 +10,11 @@ const setTasks = (tasks) => {
   }
 }
 
-export const moveToChecked = (taskId) => async dispatch => {
+export const moveToChecked = (taskId, listId, userId) => async dispatch => {
   await csrfFetch(`api/tasks/${taskId}`, {
     method: 'DELETE',
   })
+  dispatch(getAllTasks(listId, userId));
 }
 
 export const getAllTasks = (listId, userId) => async dispatch => {

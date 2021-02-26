@@ -37,9 +37,8 @@ export default function Tasks() {
   }
   const handleChecks = async (e) => {
     checked.forEach(async (taskId) => {
-      await dispatch(moveToChecked(taskId))
+      await dispatch(moveToChecked(taskId, listId, userId))
     })
-    await dispatch(getAllTasks(listId, userId));
     setChecked([]);
   }
 
