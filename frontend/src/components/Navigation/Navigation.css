@@ -7,3 +7,16 @@ ul > li {
   display: flex;
   justify-content: space-between;
 }
+
+.sidebar-button {
+  border: 0px;
+  background-color: transparent;
+  color: #B3D0EC;
+  font-size: 20px;
+}
+
+.sidebar-button:hover {
+  cursor: pointer;
+  background-color: rgb(0,82,163);
+  color: white;
+}

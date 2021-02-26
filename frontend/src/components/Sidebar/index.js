@@ -14,15 +14,28 @@ export default function Sidebar() {
     await dispatch(getAllLists(userId));
   }, [dispatch])
 
+  // useEffect(() => {
+  //   document.addEventListener('click', () => console.log("YESSSSSSSS"));
+
+  //   return () => document.removeEventListener("click", () => console.log("NOOOOOOO"));
+  // }, [])
+
   return (
     <div className="sidebar">
-      <div className="sidebar-logo"></div>
+      <div className="sidebar-logo">
+        <img className="logo" src="http://jtalkonline.com/wp-content/uploads/2018/02/logo_rememberthemilk.png" />
+      </div>
       <br></br>
-      <a onClick={() => { dispatch(setListState(null)) }}>All Tasks</a>
+      <div className="header-container">
+        <a className="allTasks-header" onClick={() => { dispatch(setListState(null)) }}>All Tasks</a>
+      </div>
 
-      <br></br>
-      <div className="lists-header">
-        <h2>lists</h2>
+      <br className="br-test"></br>
+      <div className="lists-header-container">
+        <div className="lists-header">
+          Lists
+      </div>
+
       </div>
 
       <ul>

@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getAllTasks, addNewTask, moveToChecked } from '../../store/tasks';
 import { getOneTask } from '../../store/currentTaskState'
 
+import './tasks.css';
+
 export default function Tasks() {
   const userId = useSelector(state => state.session.user.id);
   const listId = useSelector(state => state.listState.listId);
@@ -51,17 +53,18 @@ export default function Tasks() {
 
   return (
     <div className="tasks">
-      tasks{listId}
       <button className="check" onClick={handleChecks}>Mark As Complete</button>
       <form onSubmit={handleSubmit}>
         <input
+          className="newTask-box"
           type="text"
           value={newTask}
-          onChange={(e) => { setNewTask(e.target.value) }}></input>
+          onChange={(e) => { setNewTask(e.target.value) }} placeholder="Add a task..."></input>
       </form>
       {tasks.map((task, idx) => (
         <div className="tasks-task">
-          <input type="checkbox" value={task.id} onChange={handleCheck} />
+          <input type="checkbox" className="myinput" value={task.id} onChange={handleCheck} />
+          {/* <span class="checkmark"></span> */}
           <a onClick={() => {
             console.log("TASK ID: ", task.id)
             dispatch(getOneTask(task.id))

@@ -4,10 +4,46 @@
   margin-top: 2px;
   margin-bottom: 2px;
   margin-left: 10px;
-  padding: 5px;
+  padding: 2px;
   width: 140px;
 }
 
 .list-name:hover {
   background-color: #BFD7EF;
+}
+
+.logo {
+  margin-left: 10px;
+  margin-top: 8px;
+  width: 150px;
+  cursor: pointer;
+}
+
+.allTasks-header, .lists-header {
+  margin-top: 10px;
+  font-size: 14px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.header-container {
+  border-bottom: 1px solid #BFD9F1;
+  padding-bottom: 15px;
+  margin-bottom: 0px;
+  width: 140px;
+}
+
+.lists-header-container {
+  border-bottom: 1px solid #BFD9F1;
+  padding-bottom: 8px;
+  width: 140px;
+  margin-bottom: 10px;
+}
+
+*{
+  font-size: 14px;
+}
+
+.br-test {
+  color: black;
 }

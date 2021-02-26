@@ -2,6 +2,10 @@
   background-color: #D7E7F5;
   width: 170px;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
 }
 
 .nav-list {
@@ -12,10 +16,27 @@
   display: flex;
 }
 
-.task {
-  background-color: blue;
-}
 
 a {
   cursor: pointer;
+}
+
+.tasks {
+  background-color: #ffffff;
+  margin: 10px;
+  border-radius: 5px;
+  padding: 10px;
+  width: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.task {
+  background-color: #ffffff;
+  margin: 10px 10px 10px 0px;
+  border-radius: 5px;
+  padding: 30px;
+  width: 80vh;
+  height: 20vh;
 }

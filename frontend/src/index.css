@@ -1,1 +1,12 @@
 /* TODO Add site wide styles */
+*{
+  font-family: Segoe UI;
+}
+
+.page {
+  background-color: #D7E7F5;
+}
+
+html {
+  padding: 0px;
+}
