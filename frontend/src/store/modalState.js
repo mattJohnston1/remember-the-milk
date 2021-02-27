@@ -1,5 +1,3 @@
-import { csrfFetch } from './csrf';
-
 const OPEN = "modal/open";
 const CLOSE = "modal/close";
 

@@ -9,6 +9,7 @@
 
 html {
   padding: 0px;
+  margin: 0;
 }
 
 /* .profile-dropdown {
@@ -18,3 +19,7 @@ html {
 }
 .profile-dropdown>li {
 } */
+
+body {
+  margin:0;
+}

@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from '../../store/modalState';
+import { createList } from '../../store/sidebar';
 
 import './modal.css'
 
 export default function Modal() {
+  const userId = useSelector(state => state.session.user.id);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
   const newList = (e) => {
     e.preventDefault();
-    console.log(name);
-
+    dispatch(createList(userId, name));
     setName("");
+    dispatch(closeModal());
   }
   return (
     <div className="modal-bg">

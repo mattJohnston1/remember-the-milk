@@ -18,6 +18,16 @@ export const getAllLists = (userId) => async dispatch => {
   return lists;
 }
 
+export const createList = (userId, name) => async dispatch => {
+  const response = await csrfFetch(`/api/sidebar/${userId}/lists`, {
+    method: "POST",
+    body: JSON.stringify({ name })
+  });
+  const newList = await response.json();
+  dispatch(getAllLists(userId));
+  return newList;
+};
+
 const initialState = { lists: [] };
 
 const sidebarReducer = (state = initialState, action) => {
