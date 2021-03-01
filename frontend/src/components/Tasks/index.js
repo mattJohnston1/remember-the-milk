@@ -33,15 +33,11 @@ export default function Tasks() {
       const idx = checked.indexOf(val);
       setChecked(prevState => removeItem(prevState, val))
     }
-    console.log(val)
   }
 
   const handleChecks = async () => {
-    console.log(checked, "hello")
     await Promise.all(checked.map(async (taskId) => {
-      console.log("inside promise.all")
       await dispatch(moveToChecked(taskId, listId, userId))
-      console.log("alskdlaksjd")
     }))
     setChecked([]);
   }
