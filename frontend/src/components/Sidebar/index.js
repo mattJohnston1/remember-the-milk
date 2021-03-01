@@ -32,7 +32,7 @@ export default function Sidebar() {
       <br></br>
       <div className="lists-header-container">
         <button class="carret-right"><i class="fas fa-angle-right"></i></button>
-        <a className="lists-header">All Tasks</a>
+        <a onClick={() => { dispatch(setListState(null)) }} className="lists-header">All Tasks</a>
       </div>
 
       <br></br>
