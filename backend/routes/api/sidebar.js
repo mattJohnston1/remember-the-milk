@@ -16,6 +16,14 @@ router.get('/:userId/lists', asyncHandler(async function (req, res) {
   return res.json(lists);
 }));
 
+router.get('/:listId', asyncHandler(async function (req, res) {
+  const listId = req.params.listId;
+
+  const list = await List.findByPk(listId);
+
+  return res.json(list);
+}))
+
 router.post('/:userId/lists', asyncHandler(async function (req, res) {
   const id = req.params.userId;
   const { name } = req.body;
