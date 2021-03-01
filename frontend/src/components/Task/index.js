@@ -9,6 +9,7 @@ export default function Task() {
   const userId = useSelector(state => state.session.user.id);
   const listId = useSelector(state => state.listState.listId);
   const task = useSelector(state => state.currentTask.task);
+  const list = useSelector(state => state.currentTask.list);
 
   const dispatch = useDispatch();
 
@@ -24,7 +25,7 @@ export default function Task() {
       <div className="text">{task.text}</div>
       <div className="list">
         <div className="task-list">List</div>
-        <div className="listName">Homework</div>
+        <div className="listName">{list.name}</div>
       </div>
       {/* <input type="text" /> */}
     </div>

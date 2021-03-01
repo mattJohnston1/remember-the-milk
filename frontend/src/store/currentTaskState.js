@@ -3,10 +3,11 @@ import { csrfFetch } from './csrf';
 const SET_TASK = "tasks/setTask";
 const CLOSE = "tasks/close";
 
-const setTask = (task) => {
+const setTask = (task, list) => {
   return {
     type: SET_TASK,
     task,
+    list,
   }
 }
 
@@ -19,16 +20,20 @@ export const close = () => {
 export const getOneTask = (taskId) => async dispatch => {
   const response = await csrfFetch(`api/tasks/test/${taskId}`);
   const task = await response.json();
-  dispatch(setTask(task));
+  const listId = task.listId;
+  const response2 = await csrfFetch(`api/sidebar/${listId}`);
+  const list = await response2.json();
+  dispatch(setTask(task, list));
 }
 
-const initialState = { task: {}, open: false };
+const initialState = { task: {}, open: false, list: {} };
 
 const currentTaskStateReducer = (state = initialState, action) => {
-  let newState = { task: {}, open: false };
+  let newState = { task: {}, open: false, list: {} };
   switch (action.type) {
     case SET_TASK:
       newState.task = action.task;
+      newState.list = action.list;
       newState.open = true;
       return newState;
     case CLOSE:
