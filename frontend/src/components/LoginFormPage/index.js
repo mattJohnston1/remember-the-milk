@@ -28,6 +28,10 @@ function LoginFormPage() {
       });
   }
 
+  const handleDemo = () => {
+    return dispatch(sessionActions.login({credential: "Demo-lition", password: "password"}))
+  }
+  
   return (
     <div className="login-page">
       <div className="login-logo"><img className="logo" src="http://jtalkonline.com/wp-content/uploads/2018/02/logo_rememberthemilk.png" />
@@ -42,7 +46,12 @@ function LoginFormPage() {
         <div
           className="signup-redirect"
           onClick={()=>history.push('/signup')}>
-          Sign Up</div>
+          Sign Up
+        </div>
+        <div onClick={handleDemo} className="signup-redirect demo">
+          Demo
+        </div>
+
 
         <div className="login-form-header">Been here before? Welcome Back!</div>
         <form className="login-form user-form" onSubmit={handleSubmit}>

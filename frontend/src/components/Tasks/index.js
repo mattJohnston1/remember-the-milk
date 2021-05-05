@@ -52,13 +52,15 @@ export default function Tasks() {
 
   return (
     <div className="tasks">
-      <button className="check" onClick={handleChecks}>Mark As Complete</button>
+      {listId || tasks.length !== 0 ? (<button className="check" onClick={handleChecks}>Mark As Complete</button>):null}
       <form onSubmit={handleSubmit}>
+        {tasks.length  ? (
         <input
           className="newTask-box"
           type="text"
           value={newTask}
-          onChange={(e) => { setNewTask(e.target.value) }} placeholder="Add a task..."></input>
+          onChange={(e) => { setNewTask(e.target.value) }} placeholder="Add a task . . ."></input>
+        ):(<div>No tasks yet, try adding a new list or task</div>)}
       </form>
       {tasks.map((task) => (
         <div className="tasks-task">
@@ -67,9 +69,7 @@ export default function Tasks() {
             value={task.id}
             onChange={handleCheck}
             key={task.id}
-          // checked={checked.includes()}
           />
-          {/* <span class="checkmark"></span> */}
           <a onClick={() => {
             dispatch(getOneTask(task.id))
           }}>{task.text}</a>

@@ -31,17 +31,16 @@ function SignupFormPage() {
     return setErrors(['Confirm Password field must be the same as the Password field']);
   };
 
+  const handleDemo = () => {
+    return dispatch(sessionActions.login({credential: "Demo-lition", password: "password"}))
+  }
+
   return (
     <div className="signup-page">
       <div className="login-logo"><img className="logo" src="http://jtalkonline.com/wp-content/uploads/2018/02/logo_rememberthemilk.png" />
       </div>
       <div className="login-left">
       <div className="signup-intro">
-        {/* <div className="signup-chars">
-          <div className="char1 char"></div>
-          <div className="char2 char"></div>
-          <div className="char3 char"></div>
-        </div> */}
         <div className="signup-text">Join millions of people getting more organized and productive!</div>
       </div>
       </div>
@@ -50,6 +49,9 @@ function SignupFormPage() {
         className="signup-redirect"
         onClick={()=>history.push("/login")}
         >Login</div>
+        <div onClick={handleDemo} className="signup-redirect demo">
+          Demo
+        </div>
         <div className="login-form-header">Sign up for free</div>
         <form className="user-form" onSubmit={handleSubmit}>
           <ul>

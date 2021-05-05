@@ -31,7 +31,6 @@ export default function Sidebar() {
       </div>
       <br></br>
       <div className="lists-header-container">
-        {/* <button class="carret-right"><i class="fas fa-angle-right"></i></button> */}
         <a onClick={() => { dispatch(setListState(null)) }} className="lists-header">All Tasks</a>
       </div>
 

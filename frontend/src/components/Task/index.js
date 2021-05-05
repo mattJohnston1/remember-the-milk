@@ -27,7 +27,6 @@ export default function Task() {
         <div className="task-list">List</div>
         <div className="listName">{list.name}</div>
       </div>
-      {/* <input type="text" /> */}
     </div>
   )
 }
