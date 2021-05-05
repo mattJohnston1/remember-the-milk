@@ -14,13 +14,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattJohnston1/remember-the-milk-clone.git"
+    "url": "git+https://github.com/mattJohnston1/remember-the-milk"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mattJohnston1/authentication-react-project/issues"
+    "url": "https://github.com/mattJohnston1/remember-the-milk/issues"
   },
-  "homepage": "https://github.com/mattJohnston1/authentication-react-project#readme"
+  "homepage": "https://github.com/mattJohnston1/remember-the-milk#readme"
 }
