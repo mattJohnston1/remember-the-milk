@@ -30,8 +30,8 @@ export default function Sidebar() {
         <img className="logo" src="http://jtalkonline.com/wp-content/uploads/2018/02/logo_rememberthemilk.png" />
       </div>
       <br></br>
-      <div className="lists-header-container">
-        <a onClick={() => { dispatch(setListState(null)) }} className="lists-header">All Tasks</a>
+      <div onClick={() => { dispatch(setListState(null)) }} className="lists-header-container">
+        <a className="lists-header">All Tasks</a>
       </div>
 
       <br></br>
