@@ -13,15 +13,13 @@ export default function Tasks() {
   const [checked, setChecked] = useState([]);
 
   const dispatch = useDispatch();
-  useEffect(async () => {
-    const tasks = await dispatch(getAllTasks(listId, userId));
+  useEffect(() => {
+    dispatch(getAllTasks(listId, userId));
   }, [dispatch, listId])
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    await dispatch(addNewTask(newTask, listId, userId));
-
+    dispatch(addNewTask(newTask, listId, userId));
     setNewTask('');
   }
 
@@ -54,13 +52,14 @@ export default function Tasks() {
     <div className="tasks">
       {listId || tasks.length !== 0 ? (<button className="check" onClick={handleChecks}>Mark As Complete</button>):null}
       <form onSubmit={handleSubmit}>
-        {tasks.length  ? (
+        {listId !== null ? (
         <input
           className="newTask-box"
           type="text"
           value={newTask}
           onChange={(e) => { setNewTask(e.target.value) }} placeholder="Add a task . . ."></input>
-        ):(<div>No tasks yet, try adding a new list or task</div>)}
+        ):null}
+        {tasks.length === 0 ? (<div>No tasks yet, try adding a new list or task</div>): null}
       </form>
       {tasks.map((task) => (
         <div className="tasks-task">
