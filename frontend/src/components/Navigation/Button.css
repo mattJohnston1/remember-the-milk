@@ -1,0 +1,32 @@
+.profile-btn {
+    color: #B3D0EC;
+    background-color: transparent;
+    border: 0;
+    line-height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.profile-btn:hover {
+    cursor: pointer;
+    background-color: #0052A3;
+    color: white;
+}
+
+
+.logout-div {
+    padding: 5px 8px;
+}
+
+.logout-div:hover {
+    cursor: pointer;
+    background-color: rgb(241, 241, 241);
+}
+
+.dropdown-user {
+    /* font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-size: 13px;
+    font-weight: 600;
+}

@@ -12,12 +12,19 @@ html {
   margin: 0;
 }
 
-/* .profile-dropdown {
+.profile-dropdown {
   position: absolute;
+  right: 0px;
   border: 0px;
-  background-color: blue;
+  background-color: white;
+  padding: 5px 10px;
 }
-.profile-dropdown>li {
+
+.profile-dropdown > * {
+  padding: 2px;
+  text-align: right;
+}
+/* .profile-dropdown>li {
 } */
 
 body {

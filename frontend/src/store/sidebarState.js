@@ -7,7 +7,7 @@ export const setState = (open) => {
   }
 }
 
-const initialState = { open: false };
+const initialState = { open: true };
 
 const sidebarStateReducer = (state = initialState, action) => {
   let newState = { open: null };

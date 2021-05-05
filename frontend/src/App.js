@@ -19,7 +19,6 @@ function App() {
   if (!sessionUser) {
     return (
       <>
-        <Navigation isLoaded={isLoaded} />
         {isLoaded && (
           <Switch>
             <Route path="/login">

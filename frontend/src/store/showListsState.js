@@ -7,7 +7,7 @@ export const show = (boolean) => {
   }
 }
 
-const initialState = { open: false };
+const initialState = { open: true };
 
 const showListStateReducer = (state = initialState, action) => {
   let newState = { open: false };

@@ -6,6 +6,7 @@ ul {
 ul > li {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .sidebar-button {
@@ -19,4 +20,8 @@ ul > li {
   cursor: pointer;
   background-color: #0052A3;
   color: white;
+}
+
+.profile-button {
+  background-color: none;
 }
