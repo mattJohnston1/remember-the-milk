@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
-import { getAllLists } from '../../store/sidebar';
+import { getAllLists, deleteList } from '../../store/sidebar';
 import { setListState } from '../../store/listState';
 import { openModal } from '../../store/modalState';
 
@@ -43,10 +43,15 @@ export default function Sidebar() {
 
       <ul>
         {lists.map((list) => (
-          <li><a
+          <li className="list-name"><a
             className="list-name"
             hidden={open ? false : true}
-            onClick={() => { dispatch(setListState(list.id)) }}>{list.name}</a></li>
+            onClick={() => { dispatch(setListState(list.id)) }}>{list.name}
+          </a>
+            <a onClick={async () => { await dispatch(deleteList(list.id, userId)); await dispatch(getAllLists(userId)); console.log("DONEONEON ONEONEONENONENOENONENOENOENONEO") }}>
+              <i class="fa fa-trash-o cf"></i>
+            </a>
+          </li>
         ))}
       </ul>
       {showModal && (

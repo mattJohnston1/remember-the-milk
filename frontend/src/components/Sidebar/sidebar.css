@@ -84,3 +84,12 @@
 .addList:hover {
   background-color: rgb(165, 185, 206);
 }
+
+.fa-trash-o {
+  margin-right: 10px;
+}
+
+.fa-trash-o:hover {
+  cursor: pointer;
+  color: rgb(165, 185, 206);
+}

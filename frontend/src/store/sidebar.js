@@ -1,5 +1,6 @@
 import { csrfFetch } from './csrf';
 
+const DELETELIST = 'sidebar/deleteAList';
 const SET_LISTS = "sidebar/setLists";
 
 const setLists = (lists) => {
@@ -27,6 +28,12 @@ export const createList = (userId, name) => async dispatch => {
   dispatch(getAllLists(userId));
   return newList;
 };
+
+export const deleteList = (listId) => async dispatch => {
+  await csrfFetch(`api/sidebar/lists/${listId}`, {
+    method: 'DELETE'
+  })
+}
 
 const initialState = { lists: [] };
 
