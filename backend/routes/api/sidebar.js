@@ -37,6 +37,13 @@ router.post('/:userId/lists', asyncHandler(async function (req, res) {
   return res.json(lists);
 }));
 
+router.delete('/lists/:listId', asyncHandler(async function (req, res) {
+  const listId = req.params.listId;
+
+  const list = await List.findByPk(listId)
+  list.destroy();
+}))
+
 // router.get('/:userId/tags', asyncHandler(async function (req, res) {
 //   const id = req.params.userId;
 
