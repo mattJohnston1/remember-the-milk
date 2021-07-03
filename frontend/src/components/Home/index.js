@@ -29,7 +29,10 @@ export default function Home() {
         <Task />
       )}
       {!taskOpen && (
-        <h2 className="task-title">{name ? name : "All Tasks"}</h2>
+        <div className="task-lists-description">
+          <h2 className="task-title">{name ? name : "All Tasks"}</h2>
+          <div className="task-list-delete">{name ? "delete" : ""}</div>
+        </div>
       )}
     </div>
   )
