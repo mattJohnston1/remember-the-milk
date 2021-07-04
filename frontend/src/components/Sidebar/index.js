@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllLists } from '../../store/sidebar';
 import { setListState } from '../../store/listState';
 import { openModal } from '../../store/modalState';
+import DeleteModal from '../DeleteModal';
 
 import './sidebar.css'
 import { show } from '../../store/showListsState';
@@ -14,6 +15,8 @@ export default function Sidebar() {
   const userId = useSelector(state => state.session.user.id);
   const open = useSelector(state => state.showList.open);
   const showModal = useSelector(state => state.showModal.open);
+
+  const showDeleteModal = useSelector(state => state.deleteModal.open)
 
   const listsArr = Object.values(lists)
 
@@ -52,6 +55,10 @@ export default function Sidebar() {
       </ul>
       {showModal && (
         <Modal />
+      )}
+      {showDeleteModal && (
+
+        <DeleteModal />
       )}
     </div >
   )

@@ -8,6 +8,7 @@ import { deleteTasks } from '../../store/tasks'
 import { deleteList } from '../../store/listState'
 import { getAllLists, removeList } from '../../store/sidebar'
 import { useEffect, useState } from 'react'
+import { openDelete } from '../../store/deleteModalState'
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -35,12 +36,6 @@ export default function Home() {
 
   }, [dispatch])
 
-  const handleDelete = () => {
-    dispatch(deleteTasks(tasks))
-    dispatch(deleteList(listId))
-    dispatch(removeList(listId))
-  }
-
   return (
     <div className="page">
       {sidebarOpen && (
@@ -55,7 +50,7 @@ export default function Home() {
       {!taskOpen && (
         <div className="task-lists-description">
           <h2 className="task-title">{name ? name : "All Tasks"}</h2>
-          <div onClick={handleDelete} className="task-list-delete">{name ? "delete" : ""}</div>
+          <div onClick={() => dispatch(openDelete())} className="task-list-delete">{name ? "delete" : ""}</div>
         </div>
       )}
     </div>
