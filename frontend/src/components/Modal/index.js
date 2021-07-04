@@ -12,13 +12,17 @@ export default function Modal() {
   const userId = useSelector(state => state.session.user.id);
   const dispatch = useDispatch();
   const [name, setName] = useState("");
+  const [addDisabled, setAddDisabled] = useState(false);
+
   const newList = async (e) => {
     e.preventDefault();
+    setAddDisabled(true)
     const newList = await dispatch(createList(userId, name));
     const latest = newList[newList.length - 1]
     dispatch(setListState(latest.id))
     dispatch(show(true))
     setName("");
+    setAddDisabled(false)
     dispatch(closeModal());
   }
   return (
@@ -29,7 +33,7 @@ export default function Modal() {
         <form className="modal-form" onSubmit={newList}>
           <input className="modal-input" type="text" value={name} onChange={(e) => setName(e.target.value)} />
           <div className="buttons">
-            <button className="modal-add" type="submit">Add</button>
+            <button disabled={addDisabled} className="modal-add" type="submit">Add</button>
             <button className="modal-cancel" onClick={() => { dispatch(closeModal()) }}>Cancel</button>
           </div>
         </form>

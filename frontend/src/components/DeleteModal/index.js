@@ -23,13 +23,17 @@ export default function DeleteModal() {
     dispatch(closeModal());
   }
 
+  const [deleteDisabled, setDeleteDisabled] = useState(false)
+
   const listId = useSelector(state => state.listState.listId);
   const tasks = useSelector(state => state.tasks.tasks);
 
   const handleDelete = async () => {
+    setDeleteDisabled(true)
     await dispatch(deleteTasks(tasks))
     await dispatch(removeList(listId))
     await dispatch(deleteList(listId))
+    setDeleteDisabled(false)
   }
 
   return (
@@ -41,7 +45,7 @@ export default function DeleteModal() {
           <div className="modal-delete-text modal-label">Are you sure you want to delete this list, it will delete all of the tasks as well.</div>
           <div className="buttons">
             <button className="modal-add" type="submit">Delete</button>
-            <button className="modal-cancel" onClick={() => { dispatch(closeDelete()) }}>Cancel</button>
+            <button disabled={deleteDisabled} className="modal-cancel" onClick={() => { dispatch(closeDelete()) }}>Cancel</button>
           </div>
         </form>
       </div>
