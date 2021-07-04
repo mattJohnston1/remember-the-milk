@@ -47,3 +47,22 @@ a {
   font-size: 25px;
   padding: 0px 20px;
 }
+
+.task-lists-description {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 35%;
+  height: 20px;
+}
+
+.task-list-delete {
+  font-size: 14px;
+  padding: 0px 20px;
+  margin-top: 20px;
+}
+
+.task-list-delete:hover {
+  color: rgb(168, 35, 35);
+  cursor: pointer;
+}

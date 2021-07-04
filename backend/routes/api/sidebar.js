@@ -24,6 +24,16 @@ router.get('/:listId', asyncHandler(async function (req, res) {
   return res.json(list);
 }))
 
+router.delete('/list/:listId', asyncHandler(async function (req, res) {
+  const listId = req.params.listId;
+  const list = await List.findByPk(listId);
+  await list.destroy();
+
+  return res.json(list);
+}))
+
+
+
 router.post('/:userId/lists', asyncHandler(async function (req, res) {
   const id = req.params.userId;
   const { name } = req.body;

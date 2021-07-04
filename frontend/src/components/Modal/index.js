@@ -15,7 +15,7 @@ export default function Modal() {
   const newList = async (e) => {
     e.preventDefault();
     const newList = await dispatch(createList(userId, name));
-    const latest = newList[newList.length-1]
+    const latest = newList[newList.length - 1]
     dispatch(setListState(latest.id))
     dispatch(show(true))
     setName("");
