@@ -63,3 +63,10 @@ router.get('/test/:taskId', asyncHandler(async function (req, res) {
   return res.json(task);
 }));
 module.exports = router;
+
+// router.get('/delete/:taskId', asyncHandler(async function (req, res) {
+//   const taskId = req.params.taskId;
+//   const task = await Task.findByPk(taskId);
+//   return res.json(task);
+// }));
+// module.exports = router;

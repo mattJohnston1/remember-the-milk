@@ -41,10 +41,18 @@ export const addNewTask = (task, listId, userId) => async dispatch => {
   return newTask;
 }
 
+export const deleteTasks = (tasks) => async dispatch => {
+  tasks.forEach((task) => {
+    csrfFetch(`/api/tasks/${task.id}`, {
+      method: 'DELETE'
+    })
+  })
+}
+
 const initialState = { tasks: [] };
 
 const tasksReducer = (state = initialState, action) => {
-  let newState = { state, tasks: [] };
+  let newState = { ...state, tasks: [] };
   switch (action.type) {
     case SET_TASKS:
       newState.tasks = action.tasks;

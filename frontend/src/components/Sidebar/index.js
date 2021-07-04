@@ -10,10 +10,12 @@ import Modal from '../Modal';
 
 export default function Sidebar() {
   const dispatch = useDispatch();
-  const lists = useSelector(state => state.sidebar.lists);
+  const lists = useSelector(state => state.sidebar);
   const userId = useSelector(state => state.session.user.id);
   const open = useSelector(state => state.showList.open);
   const showModal = useSelector(state => state.showModal.open);
+
+  const listsArr = Object.values(lists)
 
   useEffect(async () => {
     await dispatch(getAllLists(userId));
@@ -22,7 +24,6 @@ export default function Sidebar() {
   const openList = () => {
     dispatch(show(!open))
   }
-
 
   return (
     <div className="sidebar">
@@ -42,7 +43,7 @@ export default function Sidebar() {
       </div>
 
       <ul>
-        {lists.map((list) => (
+        {listsArr.map((list) => (
           <li><a
             className="list-name"
             hidden={open ? false : true}
