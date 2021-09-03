@@ -4,8 +4,6 @@ import Task from "../Task"
 
 import "./home.css"
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteTasks } from '../../store/tasks'
-import { deleteList } from '../../store/listState'
 import { getAllLists, removeList } from '../../store/sidebar'
 import { useEffect, useState } from 'react'
 import { openDelete } from '../../store/deleteModalState'
