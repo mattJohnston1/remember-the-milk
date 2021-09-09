@@ -2,7 +2,6 @@ import { csrfFetch } from './csrf';
 
 const SET_TASKS = "tasks/setTasks";
 
-
 const setTasks = (tasks) => {
   return {
     type: SET_TASKS,
